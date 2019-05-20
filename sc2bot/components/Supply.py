@@ -8,7 +8,7 @@ class Supply(Component):
 
     async def act(self, iteration: int):
         map_center = self.bot.game_info.map_center
-        near = self.bot.units(UnitTypeId.NEXUS).first.position
+        near = self.bot.townhalls.first.position
 
         await self.bot.build(UnitTypeId.PYLON, near.towards(map_center, 5))
 

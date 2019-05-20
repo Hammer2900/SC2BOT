@@ -1,6 +1,6 @@
 from sc2 import BotAI
 
-from sc2bot.components import Expansion, Supply, Worker
+from sc2bot.components import Expansion, Geyser, Supply, Worker
 
 
 class Sc2Bot(BotAI):
@@ -9,6 +9,7 @@ class Sc2Bot(BotAI):
         super().__init__()
 
         self._expansion = Expansion(self)
+        self._geyser = Geyser(self)
         self._worker = Worker(self)
         self._supply = Supply(self)
 
@@ -16,3 +17,4 @@ class Sc2Bot(BotAI):
         await self._expansion(iteration)
         await self._worker(iteration)
         await self._supply(iteration)
+        await self._geyser(iteration)

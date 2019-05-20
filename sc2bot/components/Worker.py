@@ -14,7 +14,7 @@ class Worker(Component):
         await super().__call__(iteration)
 
     async def act(self, iteration: int):
-        nexuses = self.bot.units(UnitTypeId.NEXUS).ready.noqueue
+        nexuses = self.bot.townhalls.ready.noqueue
 
         if len(nexuses):
             await self.bot.do(nexuses.first.train(UnitTypeId.PROBE))

@@ -14,8 +14,8 @@ class Expansion(Component):
         We expand when the number of workers per Nexus exceeds a threshold, and
         we do not yet have the maximum number of Nexuses.
         """
-        ratio = len(self.bot.workers) / len(self.bot.units(UnitTypeId.NEXUS))
-        num_nexuses = len(self.bot.units(UnitTypeId.NEXUS))
+        ratio = len(self.bot.workers) / len(self.bot.townhalls)
+        num_nexuses = len(self.bot.townhalls)
 
         return ratio > Configuration.WORKERS_PER_NEXUS \
             and num_nexuses < Configuration.MAX_NEXUSES \
