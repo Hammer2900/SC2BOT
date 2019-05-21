@@ -1,7 +1,7 @@
 from sc2 import BotAI
 
 from sc2bot.components import COMPONENTS
-
+from sc2.data import Result
 
 class Sc2Bot(BotAI):
 

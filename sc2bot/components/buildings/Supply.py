@@ -14,6 +14,6 @@ class Supply(Component):
                              near.towards(map_center, 5))
 
     def should_act(self) -> bool:
-        return self.bot.supply_left < Configuration.MINIMAL_SUPPLY \
+        return self.bot.supply_left < Configuration.MIN_SUPPLY \
             and self.bot.can_afford(UnitTypeId.PYLON) \
             and not self.bot.already_pending(UnitTypeId.PYLON)

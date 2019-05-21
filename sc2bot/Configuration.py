@@ -1,6 +1,6 @@
 class Configuration:
     # Supply
-    MINIMAL_SUPPLY = 5
+    MIN_SUPPLY = 5
 
     # Nexus
     MAX_NEXUSES = 4
@@ -18,3 +18,4 @@ class Configuration:
 
     # Attack and defense options
     DEFENSE_RANGE = 25
+    MIN_UNITS_ATTACK_MOVE = 15
