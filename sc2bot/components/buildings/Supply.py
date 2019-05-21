@@ -10,7 +10,8 @@ class Supply(Component):
         map_center = self.bot.game_info.map_center
         near = self.bot.townhalls.first.position
 
-        await self.bot.build(UnitTypeId.PYLON, near.towards(map_center, 5))
+        await self.bot.build(UnitTypeId.PYLON,
+                             near.towards(map_center, 5))
 
     def should_act(self) -> bool:
         return self.bot.supply_left < Configuration.MINIMAL_SUPPLY \

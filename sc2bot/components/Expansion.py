@@ -11,8 +11,9 @@ class Expansion(Component):
 
     def should_act(self) -> bool:
         """
-        We expand when the number of workers per Nexus exceeds a threshold, and
-        we do not yet have the maximum number of Nexuses.
+        We expand when the number of workers per Nexus exceeds a threshold, we
+        do not yet have the maximum number of Nexuses, and are not currently
+        already expanding.
         """
         ratio = len(self.bot.workers) / len(self.bot.townhalls)
         num_nexuses = len(self.bot.townhalls)

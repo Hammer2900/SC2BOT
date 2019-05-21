@@ -1,4 +1,11 @@
+from .Build import Build
 from .Expansion import Expansion
-from .Geyser import Geyser
-from .Supply import Supply
-from .Worker import Worker
+from .Train import Train
+from .Defend import Defend
+
+COMPONENTS = [
+    Defend,
+    Expansion,
+    Build,
+    Train,
+]

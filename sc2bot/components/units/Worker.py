@@ -1,7 +1,7 @@
 from sc2.constants import UnitTypeId
 
 from sc2bot.Configuration import Configuration
-from .Component import Component
+from sc2bot.components.Component import Component
 
 
 class Worker(Component):
