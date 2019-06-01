@@ -19,11 +19,14 @@ class ExpenseQueue:
     def get(self) -> Callable:
         return self._queue.pop()
 
+    def is_empty(self) -> bool:
+        return len(self._queue) == 0
+
     def resolve(self):
         """
         Attempts to resolve the current queue in order.
         """
-        while len(self._queue):
+        while not self.is_empty():
             action = self.get()
 
             if not action():                    # action did not succeed, so

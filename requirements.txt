@@ -1,2 +1,6 @@
-# The Python StarCraft II library
-sc2==0.11.1
+sc2==0.11.1             # the Python StarCraft II library
+
+pytest == 4.2.0         # for test suite
+pytest-cov == 2.6.1     # for test suite
+mypy == 0.670           # for static type analysis
+codecov                 # for test coverage
