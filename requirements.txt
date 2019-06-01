@@ -1,4 +1,5 @@
 sc2==0.11.1             # the Python StarCraft II library
+numpy == 1.16.2
 
 pytest == 4.2.0         # for test suite
 pytest-cov == 2.6.1     # for test suite
