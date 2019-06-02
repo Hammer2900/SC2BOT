@@ -1,21 +1,30 @@
+from typing import Any, Dict
+
+import yaml
+
+
 class Configuration:
-    # Supply
-    MIN_SUPPLY = 5
 
-    # Nexus
-    MAX_NEXUSES = 4
-    WORKERS_PER_NEXUS = 18
-    RESOURCE_MAX_DISTANCE = 15
+    def __init__(self, data: Dict[str, Any] = None):
+        if data is None:
+            data = load()
 
-    # Building limits
-    MAX_GATEWAYS = 3
-    MAX_CYBERNETICS_CORES = 1
+        self._configuration = data
 
-    # Unit limits
-    MAX_WORKERS = 80
-    MAX_ZEALOTS = 10
-    MAX_STALKERS = 25
+    @property
+    def max_gateways(self):
+        return self._configuration['max_gateways']
 
-    # Attack and defense options
-    DEFENSE_RANGE = 25
-    MIN_UNITS_ATTACK_MOVE = 15
+    @property
+    def max_workers(self):
+        return self._configuration['max_workers']
+
+    # TODO add more properties as needed
+
+
+def load() -> Dict[str, Any]:
+    """
+    Reads the configuration file from the filesystem.
+    """
+    with open('sc2bot/configuration.yml') as file:
+        return yaml.safe_load(file)

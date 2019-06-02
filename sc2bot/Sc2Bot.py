@@ -1,16 +1,22 @@
-from sc2 import BotAI
+from functools import lru_cache
 
-from sc2bot.components import COMPONENTS
+import sc2
+
+from sc2bot.Configuration import Configuration
+from sc2bot.actions import ACTIONS
 
 
-class Sc2Bot(BotAI):
+class Sc2Bot(sc2.BotAI):
 
     def __init__(self):
         super().__init__()
+        self._actions = [action(self) for action in ACTIONS]
 
-        self._components = [component(self)
-                            for component in COMPONENTS]
+    @property
+    @lru_cache(1)
+    def configuration(self) -> Configuration:
+        return Configuration()
 
     async def on_step(self, iteration: int):
-        for component in self._components:
-            await component(iteration)
+        for action in self._actions:
+            await action(iteration)
