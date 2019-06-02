@@ -1,6 +1,6 @@
 from sc2bot.ExpenseQueue import ExpenseQueue
 from sc2 import BotAI
-from numpy.testing import assert_
+from numpy.testing import assert_, assert_raises
 
 
 def test_empty():
@@ -61,3 +61,10 @@ def test_is_fifo_queue():
     queue.put(second)                           # we placed first before second
     assert_(queue.get() is first)               # we should get them back in
     assert_(queue.get() is second)              # the same order.
+
+
+def test_empty_get_raises():
+    queue = ExpenseQueue(BotAI())
+
+    with assert_raises(IndexError):
+        queue.get()
